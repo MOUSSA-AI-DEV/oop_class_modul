@@ -1,0 +1,49 @@
+Unity Care Clinic est un système de gestion hospitalière en ligne de commande développé en PHP orienté objet. Cette version CLI permet une gestion rapide et efficace des patients, médecins et départements sans interface web.
+Le projet met l'accent sur :
+
+✅ Architecture orientée objet (OOP) avec PHP 8
+✅ Principes SOLID et bonnes pratiques
+✅ Sécurité (requêtes préparées, validation des données)
+✅ Interface console interactive et intuitive
+
+
+⚡ Fonctionnalités
+👥 Gestion des Patients
+
+Lister tous les patients
+Rechercher un patient par nom/email
+Ajouter un nouveau patient
+Modifier les informations d'un patient
+Supprimer un patient
+
+👨‍⚕️ Gestion des Médecins
+
+Lister tous les médecins
+Rechercher un médecin
+Ajouter un nouveau médecin
+Modifier les informations d'un médecin
+Supprimer un médecin
+
+🏢 Gestion des Départements
+
+Lister tous les départements
+Ajouter un département
+Modifier un département
+Supprimer un département
+
+📊 Statistiques
+
+Âge moyen des patients
+Ancienneté moyenne des médecins
+Département le plus peuplé
+Répartition des patients par département
+
+
+🏗️ Architecture
+Le projet suit une architecture orientée objet avec les patterns suivants :
+Patterns utilisés
+
+Singleton : Classe Database pour une instance unique de connexion
+Active Record : BaseModel fournit les méthodes CRUD à tous les modèles
+Inheritance : Hiérarchie avec BaseModel → Patient, Doctor, Department
+Encapsulation : Propriétés privées avec getters/setters
