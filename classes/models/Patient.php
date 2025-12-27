@@ -1,24 +1,21 @@
 <?php
-
 namespace Classes\Models;
-
-use Classes\Models\Personne;
 
 class Patient extends Personne
 {
-    protected ?int $id = null;
-    protected string $first_name;
-    protected string $last_name;
-    protected string $gender;
-    protected string $date_of_birth;
-    protected string $phone_number;
-    protected string $email;
-    protected string $address;
-
     protected static function tableName(): string
     {
         return 'patients';
     }
+
+    protected static function tableId(): string
+    {
+        return 'patient_id';
+    }
+
+    protected string $gender;
+    protected string $date_of_birth;
+    protected string $address;
 
     public function __construct(
         string $first_name,
@@ -28,20 +25,11 @@ class Patient extends Personne
         string $phone_number,
         string $email,
         string $address
-    )
- {
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
+    ) {
+        parent::__construct($first_name, $last_name, $phone_number, $email);
         $this->gender = $gender;
         $this->date_of_birth = $date_of_birth;
-        $this->phone_number = $phone_number;
-        $this->email = $email;
         $this->address = $address;
-    }
-
-    public function setId(int $id): void
-    {
-        $this->id = $id;
     }
 
     public function create(): bool
@@ -57,11 +45,9 @@ class Patient extends Personne
         ]);
     }
 
-    public function updatePatient(): bool
+    public function updatePatient(int $id): bool
     {
-        if ($this->id === null) {
-            throw new \Exception("Patient ID is required for update.");
-        }
+        $this->id = $id;
 
         return $this->save([
             'first_name' => $this->first_name,
@@ -72,20 +58,5 @@ class Patient extends Personne
             'email' => $this->email,
             'address' => $this->address
         ]);
-    }
-
-    public static function deleteById(int $id): bool
-    {
-        return parent::deleteById(parent::connectDatabase(), self::tableName(), $id);
-    }
-
-    public static function allPatients(): array
-    {
-        return parent::all();
-    }
-
-    public static function findPatient(int $id): ?array
-    {
-        return parent::find($id);
     }
 }
