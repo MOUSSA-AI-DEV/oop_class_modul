@@ -9,14 +9,19 @@ abstract class BaseModel
     protected static ?PDO $db = null;
     protected ?int $id = null;
 
+
+
+//function de table name
+
     abstract protected static function tableName(): string;
 
+    //**** */
     protected static function db(): PDO
     {
         if (self::$db === null) {
             try {
                 self::$db = new PDO(
-                    "mysql:host=localhost;dbname=health_care;charset=utf8mb4",
+                    "mysql:host=localhost;dbname=health_care",
                     "root",
                     "", [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
                 );
@@ -32,7 +37,7 @@ abstract class BaseModel
         if ($this->id === null) {
             $cols = implode(',', array_keys($data));
             $params = ':' . implode(',:', array_keys($data));
-            $sql = "INSERT INTO " . static::tableName() . " ($cols) VALUES ($params)";
+            $sql = "INSERT INTO ".static::tableName()." ($cols) VALUES ($params)";
             return self::db()->prepare($sql)->execute($data);
         }
 

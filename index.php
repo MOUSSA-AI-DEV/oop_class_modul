@@ -9,6 +9,7 @@ require_once 'classes/models/Departement.php';
 use Classes\Models\Patient;
 use Classes\Models\Doctor;
 use Classes\Models\Department;
+use Classes\Models\Personne;
 
 function input(string $msg): string {
     echo $msg;
