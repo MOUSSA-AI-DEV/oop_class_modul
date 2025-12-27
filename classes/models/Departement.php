@@ -61,4 +61,13 @@ class Department extends Personne
         return parent::deleteById($id);
     }
 
+    public static function allDepartments(): array
+    {
+        return parent::all();
+    }
+
+    public static function findDepartment(int $id): ?array
+    {
+        return parent::find($id);
+    }
 }
