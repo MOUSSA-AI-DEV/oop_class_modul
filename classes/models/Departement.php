@@ -28,7 +28,7 @@ class Department extends Personne
         $this->location = $location;
     }
 
-   /
+   
     public function setId(int $id): void
     {
         $this->id = $id;
@@ -61,13 +61,4 @@ class Department extends Personne
         return parent::deleteById($id);
     }
 
-    public static function allDepartments(): array
-    {
-        return parent::all();
-    }
-
-    public static function findDepartment(int $id): ?array
-    {
-        return parent::find($id);
-    }
 }
