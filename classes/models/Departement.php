@@ -38,7 +38,7 @@ class Department extends Personne
     public function create(): bool
     {
         return $this->save([
-            'name'     => $this->name,
+            'department_name'     => $this->name,
             'location' => $this->location
         ]);
     }
@@ -50,7 +50,7 @@ class Department extends Personne
         }
 
         return $this->save([
-            'name'     => $this->name,
+            'department_name'     => $this->name,
             'location' => $this->location
         ]);
     }

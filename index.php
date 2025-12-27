@@ -114,7 +114,7 @@ while (true) {
             break;
 
         case '3':
-            echo "1. List\n2. Add\n3. Delete\4 ,update\n ";
+            echo "1. List\n2. Add\n3. Delete\n24 ,update\n ";
 
             switch (input("Action: ")) {
 
@@ -135,7 +135,20 @@ while (true) {
                     Department::deleteById((int) input("Department ID: "));
                     echo "Department deleted\n";
                     break;
-                    case '4':
+                   case '4':
+                          $id = (int) input("Department ID to update: ");
+                      
+                          $department = new Department(
+                              input("New name: "),
+                              input("New location: ")
+                          );
+                      
+                          $department->setId($id);
+                          $department->updateDepartment();
+                      
+                          echo "Department updated\n";
+                          break;
+
             }
             break;
 
