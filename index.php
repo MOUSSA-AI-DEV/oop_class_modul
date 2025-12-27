@@ -25,7 +25,6 @@ while (true) {
 
     switch (input("Choice: ")) {
 
-        /* ================= PATIENTS ================= */
         case '1':
             echo "1. List\n2. Add\n3. Update\n4. Delete\n";
 
@@ -60,7 +59,7 @@ while (true) {
                         input("Email: "),
                         input("Address: ")
                     );
-                    $patient->updatePatient($id);
+                       $patient->updatePatient($id);
                     echo "Patient updated\n";
                     break;
 
@@ -71,7 +70,6 @@ while (true) {
             }
             break;
 
-        /* ================= DOCTORS ================= */
         case '2':
             echo "1. List\n2. Add\n3. Update\n4. Delete\n";
 
@@ -103,6 +101,7 @@ while (true) {
                         input("Email: "),
                         (int) input("Department ID: ")
                     );
+                         $doctor->setId($id);
                     $doctor->updateDoctor($id);
                     echo "Doctor updated\n";
                     break;
@@ -114,9 +113,8 @@ while (true) {
             }
             break;
 
-        /* ================= DEPARTMENTS ================= */
         case '3':
-            echo "1. List\n2. Add\n3. Delete\n";
+            echo "1. List\n2. Add\n3. Delete\4 ,update\n ";
 
             switch (input("Action: ")) {
 
@@ -125,7 +123,11 @@ while (true) {
                     break;
 
                 case '2':
-                    (new Department(input("Department Name: ")))->create();
+                    (new Department(
+                        input("Department Name: "),
+                        input("location")
+                        
+                        ))->create();
                     echo "Department added\n";
                     break;
 
@@ -133,6 +135,7 @@ while (true) {
                     Department::deleteById((int) input("Department ID: "));
                     echo "Department deleted\n";
                     break;
+                    case '4':
             }
             break;
 
