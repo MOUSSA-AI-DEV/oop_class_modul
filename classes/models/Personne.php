@@ -20,13 +20,11 @@ abstract class Personne extends BaseModel
         $this->email = $email;
     }
 
-    // Méthode utilitaire demandée
     public function getFullName(): string
     {
         return $this->first_name . ' ' . $this->last_name;
     }
 
-    // Getters (encapsulation)
     public function getFirstName(): string
     {
         return $this->first_name;
